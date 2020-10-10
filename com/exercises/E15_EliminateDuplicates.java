@@ -30,7 +30,7 @@ public class E15_EliminateDuplicates
         {
             boolean isDuplicate = false;
 
-            for (int j = 0; j < i; j++)
+            for (int j = 0; j < counter; j++)
             {
                 if (a[i] == b[j])
                 {
