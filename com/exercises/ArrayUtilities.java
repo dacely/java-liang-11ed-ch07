@@ -25,6 +25,28 @@ public class ArrayUtilities
         }
     }
 
+    public static void printArray(double[] a)
+    {
+        for (int i = 0; i < a.length; i++)
+        {
+            System.out.printf("%10.2f", a[i]);
+
+            if ((i + 1) % 20 == 0)
+                System.out.println();
+        }
+    }
+
+    public static void printArray(boolean[] a)
+    {
+        for (int i = 0; i < a.length; i++)
+        {
+            System.out.printf("%2d", a[i] ? 1 : 0);
+
+            if ((i + 1) % 20 == 0)
+                System.out.println();
+        }
+    }
+
     public static long gcd(long a, long b)
     {
         if (b == 0)
@@ -167,5 +189,40 @@ public class ArrayUtilities
                 }
             }
         }
+    }
+
+    public static boolean isSorted(int[] list)
+    {
+        for (int i = 0; i < list.length - 1; i++)
+        {
+            for (int j = i + 1; j < list.length; j++)
+            {
+                if (list[i] > list[j])
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    public static double[] normalizedIntegers(int[] integers)
+    {
+        int largest = getLargest(integers);
+        double[] normalized = new double[integers.length];
+        for (int i = 0; i < integers.length; i++)
+            normalized[i] = (double) integers[i] / largest;
+        return normalized;
+    }
+
+    public static int getLargest(int[] list)
+    {
+        int largest = list[0];
+
+        for (int i = 1; i < list.length; i++)
+        {
+            if (list[i] > largest)
+                largest = list[i];
+        }
+
+        return largest;
     }
 }
