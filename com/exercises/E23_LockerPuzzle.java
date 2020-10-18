@@ -4,13 +4,13 @@ public class E23_LockerPuzzle
 {
     public static void main(String[] args)
     {
-        final int NUMBER_OF_LOCKERS = 1000;
+        final int NUMBER_OF_LOCKERS = 100;
         boolean[] lockers = new boolean[NUMBER_OF_LOCKERS];
         for (int i = 1; i <= NUMBER_OF_LOCKERS; i++)
         {
             studentPassThrough(lockers, i);
-//            ArrayUtilities.printArray(lockers);
-//            System.out.println("\n\n");
+            ArrayUtilities.printArray(lockers);
+            System.out.println("\n\n");
         }
 
         int totalOpen = 0;
