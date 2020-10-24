@@ -225,4 +225,29 @@ public class ArrayUtilities
 
         return largest;
     }
+
+    public static int[] mergeSortedLists(int[] list1, int[] list2)
+    {
+        int[] mergedList = new int[list1.length + list2.length];
+
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        while (i < list1.length && j < list2.length)
+        {
+            if (list1[i] < list2[j])
+                mergedList[k++] = list1[i++];
+            else
+                mergedList[k++] = list2[j++];
+        }
+
+        while (i < list1.length)
+            mergedList[k++] = list1[i++];
+
+        while (j < list2.length)
+            mergedList[k++] = list2[j++];
+
+        return mergedList;
+    }
 }
