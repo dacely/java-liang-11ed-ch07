@@ -250,4 +250,45 @@ public class ArrayUtilities
 
         return mergedList;
     }
+
+    public static int partition(int[] list, int low, int high)
+    {
+        int pivot = list[low];
+        int countBigger = 0;
+        int temp, i;
+
+        for (int j = high; j > low; j--)
+        {
+            if (list[j] > pivot)
+            {
+                i = high - countBigger;
+                temp = list[i];
+                list[i] = list[j];
+                list[j] = temp;
+                countBigger++;
+            }
+        }
+
+        i = high - countBigger;
+        temp = list[i];
+        list[i] = list[low];
+        list[low] = temp;
+
+        return i;
+    }
+
+    public static void quickSort(int[] list)
+    {
+        quickSortRecursive(list, 0, list.length - 1);
+    }
+
+    public static void quickSortRecursive(int[] list, int low, int high)
+    {
+        if (low < high)
+        {
+            int pi = partition(list, low, high);
+            quickSortRecursive(list, low, pi - 1);
+            quickSortRecursive(list, pi + 1, high);
+        }
+    }
 }
